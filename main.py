@@ -25,10 +25,10 @@ headers = {
 try:
     response = session.get(url, headers=headers, timeout=10)
     soup = BeautifulSoup(response.content, 'html.parser')
-
-title = "İndirimli Ürün"
-price = "Fiyat bilgisi için tıklayın"
-image_url = None
+except:
+    title = "İndirimli Ürün"
+    price = "Fiyat bilgisi için tıklayın"
+    image_url = None
 
 # Trendyol
 if "trendyol.com" in url:
