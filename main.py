@@ -16,7 +16,7 @@ level=logging.INFO
 )
 
 def get_product_details(url):
-session = requests.Session()
+    session = requests.Session()
 headers = {
 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
 'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7'
