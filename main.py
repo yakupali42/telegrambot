@@ -81,25 +81,25 @@ keyboard = [[InlineKeyboardButton("🛍️️ Ürünü İncele / Satın Al", ur
 reply_markup = InlineKeyboardMarkup(keyboard)
 
 try:
-    if image_url:
-        await context.bot.send_photo(
-        chat_id=CHANNEL_ID,
-        photo=image_url,
-        caption=caption_text,
-        parse_mode="Markdown",
-        reply_markup=reply_markup
-
+if image_url:
+await context.bot.send_photo(
+chat_id=CHANNEL_ID,
+photo=image_url,
+caption=caption_text,
+parse_mode="Markdown",
+reply_markup=reply_markup
 )
-        else:
+else:
 await context.bot.send_message(
 chat_id=CHANNEL_ID,
 text=f"{caption_text}\n\n*(Görsel çekilemedi)*",
 parse_mode="Markdown",
 reply_markup=reply_markup
 )
-await update.message.reply_text("✅ Başarıyla kanalda paylaşıldı!")
+await update.message.reply_text("✅ Başarıyla kanalda paylaşıldı!")
 except Exception as e:
-await update.message.reply_text(f"⚠️ Kanala gönderirken hata oluştu: {e}")
+logging.error(f"Hata oluştu: {e}")
+await update.message.reply_text(f"⚠️ Kanala gönderirken hata oluştu: {e}")
 
 if __name__ == '__main__':
     app = ApplicationBuilder().token(TOKEN).build()
