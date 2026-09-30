@@ -1,3 +1,3 @@
-python-telegram-bot
+python-telegrambot
 requests
-beautifulsoup416:45
+beautifulsoup4
