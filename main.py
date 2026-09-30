@@ -99,7 +99,6 @@ caption=caption_text,
 parse_mode="Markdown",
 reply_markup=reply_markup
 
-Sessiz Sinema:
 )
 else:
 await context.bot.send_message(
