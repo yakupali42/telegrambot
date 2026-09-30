@@ -96,7 +96,7 @@ try:
             parse_mode="Markdown",
             reply_markup=reply_markup
 )
-await update.message.reply_text("✅ Başarıyla kanalda paylaşıldı!")
+            await update.message.reply_text("✅ Başarıyla kanalda paylaşıldı!")
 except Exception as e:
 logging.error(f"Hata oluştu: {e}")
 await update.message.reply_text(f"⚠️ Kanala gönderirken hata oluştu: {e}")
