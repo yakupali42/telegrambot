@@ -62,7 +62,7 @@ def get_product_details(url):
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-text = update.message.text
+    text = update.message.text
 
 # URL Tespiti
 urls = re.findall(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
