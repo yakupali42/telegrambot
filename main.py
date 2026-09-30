@@ -44,27 +44,27 @@ if img_tag:
 
 # Amazon
 elif "amazon.com" in url or "amzn.eu" in url:
-title_tag = soup.find("span", id="productTitle")
+    title_tag = soup.find("span", id="productTitle")
 if title_tag:
-title = title_tag.text.strip()
+    title = title_tag.text.strip()
 price_tag = soup.find("span", class_="a-price-whole")
 if price_tag:
-price = price_tag.text.strip() + " TL"
+    price = price_tag.text.strip() + " TL"
 img_tag = soup.find("img", id="landingImage")
 if img_tag:
-image_url = img_tag.get("src")
+    image_url = img_tag.get("src")
 
 # Hepsiburada
 elif "hepsiburada.com" in url:
-title_tag = soup.find("h1", id="product-name") or soup.find("h1")
-if title_tag:
-title = title_tag.text.strip()
-price_tag = soup.find("span", id="offered-price") or soup.find("div", class_="price-val")
-if price_tag:
-price = price_tag.text.strip()
-img_tag = soup.find("img", class_="product-image")
-if img_tag:
-image_url = img_tag.get("src")
+    title_tag = soup.find("h1", id="product-name") or soup.find("h1")
+    if title_tag:
+    title = title_tag.text.strip()
+    price_tag = soup.find("span", id="offered-price") or soup.find("div", class_="price-val")
+    if price_tag:
+    price = price_tag.text.strip()
+    img_tag = soup.find("img", class_="product-image")
+    if img_tag:
+    image_url = img_tag.get("src")
 
 return title, price, image_url
 except Exception as e:
