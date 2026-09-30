@@ -81,20 +81,20 @@ keyboard = [[InlineKeyboardButton("🛍️️ Ürünü İncele / Satın Al", ur
 reply_markup = InlineKeyboardMarkup(keyboard)
 
 try:
-if image_url:
-await context.bot.send_photo(
-chat_id=CHANNEL_ID,
-photo=image_url,
-caption=caption_text,
-parse_mode="Markdown",
-reply_markup=reply_markup
-)
-else:
+        if image_url:
+                    await context.bot.send_photo(
+                        chat_id=CHANNEL_ID,
+                        photo=image_url,
+                        caption=caption_text,
+                        parse_mode="Markdown",
+                        reply_markup=reply_markup
+                    )
+            else;
 await context.bot.send_message(
-chat_id=CHANNEL_ID,
-text=f"{caption_text}\n\n*(Görsel çekilemedi)*",
-parse_mode="Markdown",
-reply_markup=reply_markup
+    chat_id=CHANNEL_ID,
+    text=f"{caption_text}\n\n*(Görsel çekilemedi)*",
+    parse_mode="Markdown",
+    reply_markup=reply_markup
 )
 await update.message.reply_text("✅ Başarıyla kanalda paylaşıldı!")
 except Exception as e:
