@@ -23,8 +23,8 @@ headers = {
 }
 
 try:
-response = session.get(url, headers=headers, timeout=10)
-soup = BeautifulSoup(response.content, 'html.parser')
+    response = session.get(url, headers=headers, timeout=10)
+    soup = BeautifulSoup(response.content, 'html.parser')
 
 title = "İndirimli Ürün"
 price = "Fiyat bilgisi için tıklayın"
