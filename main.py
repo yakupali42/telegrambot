@@ -67,9 +67,9 @@ elif "hepsiburada.com" in url:
         image_url = img_tag.get("src")
 
     return title, price, image_url
-    except Exception as e:
-    logging.error(f"Hata oluştu: {e}")
-    return "İndirimli Ürün", "Fiyat Detayı Linkte", None
+        except Exception as e:
+        logging.error(f"Hata oluştu: {e}")
+        return "İndirimli Ürün", "Fiyat Detayı Linkte", None
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 text = update.message.text
