@@ -67,7 +67,7 @@ elif "hepsiburada.com" in url:
         image_url = img_tag.get("src")
 
     return title, price, image_url
-except Exception as e:
+    except Exception as e:
     logging.error(f"Hata oluştu: {e}")
     return "İndirimli Ürün", "Fiyat Detayı Linkte", None
 
