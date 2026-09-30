@@ -98,8 +98,8 @@ try:
 )
             await update.message.reply_text("✅ Başarıyla kanalda paylaşıldı!")
 except Exception as e:
-logging.error(f"Hata oluştu: {e}")
-await update.message.reply_text(f"⚠️ Kanala gönderirken hata oluştu: {e}")
+    logging.error(f"Hata oluştu: {e}")
+    await update.message.reply_text(f"⚠️ Kanala gönderirken hata oluştu: {e}")
 
 if __name__ == '__main__':
     app = ApplicationBuilder().token(TOKEN).build()
