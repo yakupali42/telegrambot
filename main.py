@@ -82,12 +82,12 @@ reply_markup = InlineKeyboardMarkup(keyboard)
 
 try:
     if image_url:
-await context.bot.send_photo(
-chat_id=CHANNEL_ID,
-photo=image_url,
-caption=caption_text,
-parse_mode="Markdown",
-reply_markup=reply_markup
+    await context.bot.send_photo(
+    chat_id=CHANNEL_ID,
+    photo=image_url,
+    caption=caption_text,
+    parse_mode="Markdown",
+    reply_markup=reply_markup
 
 )
 else:
