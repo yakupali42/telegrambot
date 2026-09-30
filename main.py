@@ -132,7 +132,7 @@ except Exception as e:
 await update.message.reply_text(f"❌ Kanala gönderirken hata oluştu: {e}")
 
 if __name__ == '__main__':
-    app = ApplicationBuilder().token(TOKEN).build()
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    print("Bot çalışıyor...")
-    app.run_polling()
+app = ApplicationBuilder().token(TOKEN).build()
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+print("Bot çalışıyor...")
+app.run_polling()
