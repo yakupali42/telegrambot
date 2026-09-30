@@ -81,7 +81,7 @@ keyboard = [[InlineKeyboardButton("🛍️️ Ürünü İncele / Satın Al", ur
 reply_markup = InlineKeyboardMarkup(keyboard)
 
 try:
-if image_url:
+    if image_url:
 await context.bot.send_photo(
 chat_id=CHANNEL_ID,
 photo=image_url,
