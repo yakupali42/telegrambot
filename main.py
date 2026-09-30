@@ -34,13 +34,13 @@ except:
 if "trendyol.com" in url:
     title_tag = soup.find("h1", class_="pr-new-br") or soup.find("h1")
 if title_tag:
-title = title_tag.text.strip()
+    title = title_tag.text.strip()
 price_tag = soup.find("span", class_="prc-dsc") or soup.find("span", class_="prc-slg")
 if price_tag:
-price = price_tag.text.strip()
+    price = price_tag.text.strip()
 img_tag = soup.find("img", class_="detail-big-image") or soup.find("div", class_="product-slide")
 if img_tag:
-image_url = img_tag.get("src") or img_tag.find("img").get("src")
+    image_url = img_tag.get("src") or img_tag.find("img").get("src")
 
 # Amazon
 elif "amazon.com" in url or "amzn.eu" in url:
