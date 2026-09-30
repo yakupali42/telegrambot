@@ -58,7 +58,7 @@ if img_tag:
 elif "hepsiburada.com" in url:
     title_tag = soup.find("h1", id="product-name") or soup.find("h1")
     if title_tag:
-    title = title_tag.text.strip()
+        title = title_tag.text.strip()
     price_tag = soup.find("span", id="offered-price") or soup.find("div", class_="price-val")
     if price_tag:
     price = price_tag.text.strip()
