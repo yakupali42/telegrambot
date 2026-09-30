@@ -32,7 +32,7 @@ except:
 
 # Trendyol
 if "trendyol.com" in url:
-title_tag = soup.find("h1", class_="pr-new-br") or soup.find("h1")
+    title_tag = soup.find("h1", class_="pr-new-br") or soup.find("h1")
 if title_tag:
 title = title_tag.text.strip()
 price_tag = soup.find("span", class_="prc-dsc") or soup.find("span", class_="prc-slg")
