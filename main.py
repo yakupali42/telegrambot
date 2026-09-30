@@ -16,60 +16,50 @@ level=logging.INFO
 )
 
 def get_product_details(url):
-    session = requests.Session()
-headers = {
-'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
-'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7'
-}
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.9,en;q=0.7'
+        }
+        response = session.get(url, headers=headers, timeout=10)
+        soup = BeautifulSoup(response.content, 'html.parser')
 
-try:
-    response = session.get(url, headers=headers, timeout=10)
-    soup = BeautifulSoup(response.content, 'html.parser')
-except:
-    title = "İndirimli Ürün"
-    price = "Fiyat bilgisi için tıklayın"
-    image_url = None
+        title = "İndirimli Ürün"
+        price = "Fiyat Bilgisi İçin Tıklayın"
+        image_url = None
 
-# Trendyol
-if "trendyol.com" in url:
-    title_tag = soup.find("h1", class_="pr-new-br") or soup.find("h1")
-if title_tag:
-    title = title_tag.text.strip()
-price_tag = soup.find("span", class_="prc-dsc") or soup.find("span", class_="prc-slg")
-if price_tag:
-    price = price_tag.text.strip()
-img_tag = soup.find("img", class_="detail-big-image") or soup.find("div", class_="product-slide")
-if img_tag:
-    image_url = img_tag.get("src") or img_tag.find("img").get("src")
+        # Trendyol Kontrolü
+        if "trendyol.com" in url:
+            title_tag = soup.find("h1", class_="pr-new-br") or soup.find("h1")
+            if title_tag:
+                title = title_tag.text.strip()
+            price_tag = soup.find("span", class_="prc-dsc")
+            if price_tag:
+                price = price_tag.text.strip()
+            img_tag = soup.find("img")
+            if img_tag:
+                image_url = img_tag.get("src")
 
-# Amazon
-elif "amazon.com" in url or "amzn.eu" in url:
-    title_tag = soup.find("span", id="productTitle")
-if title_tag:
-    title = title_tag.text.strip()
-price_tag = soup.find("span", class_="a-price-whole")
-if price_tag:
-    price = price_tag.text.strip() + " TL"
-img_tag = soup.find("img", id="landingImage")
-if img_tag:
-    image_url = img_tag.get("src")
+        # Hepsiburada Kontrolü
+        elif "hepsiburada.com" in url:
+            title_tag = soup.find("h1", id="product-name") or soup.find("h1")
+            if title_tag:
+                title = title_tag.text.strip()
+            price_tag = soup.find("span", id="offered-price")
+            if price_tag:
+                price = price_tag.text.strip()
+            img_tag = soup.find("img", class_="product-image")
+            if img_tag:
+                image_url = img_tag.get("src")
 
-# Hepsiburada
-elif "hepsiburada.com" in url:
-    title_tag = soup.find("h1", id="product-name") or soup.find("h1")
-    if title_tag:
-        title = title_tag.text.strip()
-    price_tag = soup.find("span", id="offered-price") or soup.find("div", class_="price-val")
-    if price_tag:
-        price = price_tag.text.strip()
-    img_tag = soup.find("img", class_="product-image")
-    if img_tag:
-        image_url = img_tag.get("src")
+        return title, price, image_url
 
-    return title, price, image_url
-        except Exception as e:
+    except Exception as e:
         logging.error(f"Hata oluştu: {e}")
         return "İndirimli Ürün", "Fiyat Detayı Linkte", None
+
+
+
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 text = update.message.text
