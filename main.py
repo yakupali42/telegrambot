@@ -117,31 +117,31 @@ allow_redirects=True
 # AMAZON
 # ==================================
 
-elif (
-"amazon.com" in url.lower()
-or "amazon.com.tr" in url.lower()
-or "amzn.eu" in url.lower()
+    elif (
+    "amazon.com" in url.lower()
+    or "amazon.com.tr" in url.lower()
+    or "amzn.eu" in url.lower()
 ):
 
-title_tag = soup.find(
-"span",
-id="productTitle"
-)
-
-if title_tag:
-title = title_tag.get_text(
-" ",
-strip=True
-)
-
-price_tag = (
-soup.find(
-"span",
-class_="a-offscreen"
-)
-or soup.find(
-"span",
-class_="a-price-whole"
+        title_tag = soup.find(
+        "span",
+        id="productTitle"
+        )
+        
+        if title_tag:
+        title = title_tag.get_text(
+        " ",
+        strip=True
+        )
+        
+        price_tag = (
+        soup.find(
+        "span",
+        class_="a-offscreen"
+        )
+        or soup.find(
+        "span",
+        class_="a-price-whole"
 )
 )
 
