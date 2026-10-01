@@ -50,7 +50,7 @@ def get_product_details(url):
 
 try:
 
-response = requests.get(
+    response = requests.get(
 url,
 headers=headers,
 timeout=15,
