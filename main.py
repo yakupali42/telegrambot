@@ -57,11 +57,11 @@ timeout=15,
 allow_redirects=True
 )
 
-response.raise_for_status()
+    response.raise_for_status()
 
-soup = BeautifulSoup(
-response.text,
-"html.parser"
+    soup = BeautifulSoup(
+    response.text,
+    "html.parser"
 )
 
 title = "İndirimli Ürün"
@@ -169,7 +169,6 @@ or image_tag.get("data-old-hires")
 
 elif "hepsiburada.com" in url.lower():
 
-Sessiz Sinema:
 title_tag = (
 soup.find(
 "h1",
