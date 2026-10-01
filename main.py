@@ -64,9 +64,9 @@ allow_redirects=True
     "html.parser"
 )
 
-title = "İndirimli Ürün"
-price = "Fiyat için ürünü inceleyin"
-image_url = None
+    title = "İndirimli Ürün"
+    price = "Fiyat için ürünü inceleyin"
+    image_url = None
 
 
 # ==================================
