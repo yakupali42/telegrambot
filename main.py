@@ -73,29 +73,29 @@ allow_redirects=True
 # TRENDYOL
 # ==================================
 
-if "trendyol.com" in url.lower():
+    if "trendyol.com" in url.lower():
 
-title_tag = (
-soup.find("h1", class_="pr-new-br")
-or soup.find("h1")
-)
+        title_tag = (
+        soup.find("h1", class_="pr-new-br")
+        or soup.find("h1")
+        )
 
-if title_tag:
-title = title_tag.get_text(
-" ",
-strip=True
-)
+        if title_tag:
+            title = title_tag.get_text(
+            " ",
+            strip=True
+            )
 
-price_tag = (
-soup.find("span", class_="prc-dsc")
-or soup.find("span", class_="prc-slg")
-)
+            price_tag = (
+            soup.find("span", class_="prc-dsc")
+            or soup.find("span", class_="prc-slg")
+            )
 
-if price_tag:
-price = price_tag.get_text(
-" ",
-strip=True
-)
+        if price_tag:
+            price = price_tag.get_text(
+            " ",
+            strip=True
+            )
 
 image_tag = (
 soup.find(
