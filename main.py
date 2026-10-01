@@ -403,7 +403,7 @@ application.run_polling()
 # PROGRAMI ÇALIŞTIR
 # ==========================================
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 main()
 
 
