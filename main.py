@@ -97,20 +97,20 @@ allow_redirects=True
             strip=True
             )
 
-image_tag = (
-soup.find(
-"img",
-class_="detail-big-image"
-)
-or soup.find("img")
-)
-
-if image_tag:
-
-image_url = (
-image_tag.get("src")
-or image_tag.get("data-src")
-)
+        image_tag = (
+        soup.find(
+        "img",
+        class_="detail-big-image"
+        )
+        or soup.find("img")
+        )
+    
+        if image_tag:
+    
+            image_url = (
+            image_tag.get("src")
+            or image_tag.get("data-src")
+        )
 
 
 # ==================================
